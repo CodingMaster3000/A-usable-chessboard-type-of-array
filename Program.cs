@@ -4,17 +4,18 @@
     {
         static void Main(string[] args)
         {
-            string[,] board = new string[8, 8];
+            const int BOARD_WIDTH_AND_HEIGHT = 8;
+            string[,] board = new string[BOARD_WIDTH_AND_HEIGHT, BOARD_WIDTH_AND_HEIGHT];
 
 
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
             {
-                for (int j = 0; j < 8; j++)
+                for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
                 {
                     board[i, j] = "0";
                 }
             }
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
             {
                 board[1, i] = "P";
                 board[6, i] = "p";
@@ -42,9 +43,9 @@
             board[7, 4] = "k";
             //"P" = Pawn, "K" = Knight, "B" = Bishop, "R" = Rook, "Q" = Queen, "K" = King, uppercase = white, lowercase = black
 
-            for (int i = 0;i < 8;i++)
+            for (int i = 0;i < BOARD_WIDTH_AND_HEIGHT;i++)
             {
-                for (int j = 0;j < 8;j++)
+                for (int j = 0;j < BOARD_WIDTH_AND_HEIGHT;j++)
                 {
                     Console.Write(board[i,j]);
                     Console.Write(" ");
@@ -52,7 +53,7 @@
                 }
                 Console.WriteLine("");
 
-            }
+            }        
         }
     }
 }
