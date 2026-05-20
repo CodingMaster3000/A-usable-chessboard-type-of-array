@@ -1,0 +1,1 @@
+# A usable chessboard type of array
