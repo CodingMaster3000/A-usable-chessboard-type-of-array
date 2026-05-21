@@ -5,10 +5,15 @@
         static void Main(string[] args)
         {
             const int BOARD_WIDTH_AND_HEIGHT = 8;
-            string move;
+            string move = "";
             bool checkmate = false;
             bool draw = false;
+            bool whiteToMove = true;
             string[,] board = new string[BOARD_WIDTH_AND_HEIGHT, BOARD_WIDTH_AND_HEIGHT];
+            string[] moveComponents = new string[3];
+            List<string> movecomponents = new List<string> {"","",""};
+            List<string> boardColums = new List<string> {"a","b","c","d","e", "f", "g", "h"};
+            List<string> pieces = new List<string> {"P", "p", "N", "n", "B", "b", "R", "r", "Q", "q", "K", "k"};
             for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
             {
                 for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
@@ -50,6 +55,44 @@
             while (checkmate == false && draw == false)
             {
                 move = Console.ReadLine();
+                for (int i = 0;i < 2;  i++)
+                {
+                    moveComponents[i] = move[i].ToString();
+                }
+                moveComponents[2] = move[2].ToString();
+                foreach (string piece in pieces)
+                    if (piece == moveComponents[0])
+                    {
+                        for (int i = 0; i < 8; i++)
+                        {
+                            for (int j = 0; j < 8; j++)
+                            {
+                                if (board[j,i] == piece)
+                                {
+                                    board[j, i] = "0";
+                                    for (int k = 0; k < BOARD_WIDTH_AND_HEIGHT; k++)
+                                    {
+                                        if (boardColums[k] == moveComponents[1])
+                                        {
+                                            board[k, Convert.ToInt32(moveComponents[2])-1] = piece;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        Console.WriteLine($"{piece}");
+                    }
+                for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
+                {
+                    for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
+                    {
+                        Console.Write(board[i, j]);
+                        Console.Write(" ");
+                    }
+                    Console.WriteLine("");
+                }
+                {
+                }
                 Console.WriteLine($"{move}");
             }
         }
