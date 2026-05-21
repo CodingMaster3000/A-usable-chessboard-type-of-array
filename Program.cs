@@ -43,17 +43,30 @@
             board[0, 4] = "K";
             board[7, 4] = "k";
             //"P" = Pawn, "K" = Knight, "B" = Bishop, "R" = Rook, "Q" = Queen, "K" = King, uppercase = white, lowercase = black
-            for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
-            {
-                for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
-                {
-                    Console.Write(board[i, j]);
-                    Console.Write(" ");
-                }
-                Console.WriteLine("");
-            }
+
             while (checkmate == false && draw == false)
             {
+                Console.Write("/");
+                Console.Write(" ");
+
+                foreach (string boardColum in boardColums)
+                {
+                    Console.Write($"{boardColum}");
+                    Console.Write(" ");
+                }
+                Console.WriteLine();
+                for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
+                {
+                    Console.Write($"{i}");
+                    Console.Write(" ");
+
+                    for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
+                    {
+                        Console.Write(board[i, j]);
+                        Console.Write(" ");
+                    }
+                    Console.WriteLine("");
+                }
                 move = Console.ReadLine();
                 for (int i = 0;i < 2;  i++)
                 {
@@ -82,17 +95,8 @@
                         }
                         Console.WriteLine($"{piece}");
                     }
-                for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
-                {
-                    for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
-                    {
-                        Console.Write(board[i, j]);
-                        Console.Write(" ");
-                    }
-                    Console.WriteLine("");
-                }
-                {
-                }
+
+
                 Console.WriteLine($"{move}");
             }
         }
