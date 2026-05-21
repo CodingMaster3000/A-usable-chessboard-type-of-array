@@ -5,6 +5,9 @@
         static void Main(string[] args)
         {
             const int BOARD_WIDTH_AND_HEIGHT = 8;
+            string move;
+            bool checkmate = false;
+            bool draw = false;
             string[,] board = new string[BOARD_WIDTH_AND_HEIGHT, BOARD_WIDTH_AND_HEIGHT];
             for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
             {
@@ -43,6 +46,11 @@
                     Console.Write(" ");
                 }
                 Console.WriteLine("");
+            }
+            while (checkmate == false && draw == false)
+            {
+                move = Console.ReadLine();
+                Console.WriteLine($"{move}");
             }
         }
     }
