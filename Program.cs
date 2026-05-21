@@ -57,7 +57,7 @@
                 Console.WriteLine();
                 for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
                 {
-                    Console.Write($"{i}");
+                    Console.Write($"{i+1}");
                     Console.Write(" ");
 
                     for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
