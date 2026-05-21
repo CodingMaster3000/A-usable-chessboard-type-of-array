@@ -76,9 +76,9 @@
                 foreach (string piece in pieces)
                     if (piece == moveComponents[0])
                     {
-                        for (int i = 0; i < 8; i++)
+                        for (int i = 0; i < BOARD_WIDTH_AND_HEIGHT; i++)
                         {
-                            for (int j = 0; j < 8; j++)
+                            for (int j = 0; j < BOARD_WIDTH_AND_HEIGHT; j++)
                             {
                                 if (board[j,i] == piece)
                                 {
